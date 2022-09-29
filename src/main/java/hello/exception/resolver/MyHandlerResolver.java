@@ -10,9 +10,11 @@ import java.io.IOException;
 
 @Slf4j
 public class MyHandlerResolver implements HandlerExceptionResolver {
+
+
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
-
+        log.info("Call resolver", ex);
         try {
             if (ex instanceof IllegalArgumentException) {
                 log.info("IllegalArgumentException resolver to 400");

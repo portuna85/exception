@@ -4,7 +4,6 @@ import hello.exception.filter.LogFilter;
 import hello.exception.interceptor.LogInterceptor;
 import hello.exception.resolver.MyHandlerResolver;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -21,7 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LogInterceptor())
                 .order(1)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/css/**", "*.ico", "/error","/error-page/**"); // 오류 페이지 경로
+                .excludePathPatterns("/css/**", "*.ico", "/error", "/error-page/**"); // 오류 페이지 경로
     }
 
     @Override
